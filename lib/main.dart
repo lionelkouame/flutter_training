@@ -45,6 +45,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String name = "";
 
   void _incrementCounter() {
     setState(() {
@@ -89,15 +90,32 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'Salut  $name !!!! Bienvenue dans Application flutter',
+              textAlign: TextAlign.center,
+              style: new TextStyle(
+                color: Colors.green,
+                fontSize: 20,
+              ),
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            TextField(
+              onChanged: (String string) {
+              },
+              onSubmitted: (String string){
+                setState(() {
+                  name = string;
+                });
+              },
+              decoration: new InputDecoration(
+                labelText: "Entrez votre prenom"
+              ),
+            )
           ],
         ),
       ),
