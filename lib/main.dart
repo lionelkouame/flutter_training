@@ -32,7 +32,16 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.teal,
+      appBar:  new AppBar(
+        title: new Text('Jhon Doe '),
+        leading: new Icon(Icons.account_balance_wallet),
+        actions: <Widget>[
+          new Icon(Icons.account_balance_wallet),
+          new Icon(Icons.label),
+          new Icon(Icons.account_circle),
+        ]
+      ),
     );
   }
 }
