@@ -44,17 +44,53 @@ class _Home extends State<Home> {
         elevation: 10,
         centerTitle:  true,
       ),
-      body: new Container(
-        color: Colors.blueGrey,
-        child: new Center(
-          child: new Text("Welcome to the appliaction",
-            textAlign: TextAlign.center,
-            textScaleFactor: 1.5,
-            style: new TextStyle(
-              fontSize: 20,
+      body: new Center(
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            new Text("Salut My name is Gopher",
+              style: new TextStyle(
+                color: Colors.black,
+                fontSize: 30,
+                fontStyle: FontStyle.italic
+              )
+            ),
+            new Card(
+              elevation: 20,
+              child: new Container(
+                height: 200,
+                width: 300,
+                child: new Image.asset("images/go.png"),
+              ),
+            ),
+            new Container(
+              color: Colors.grey,
+              height: 70,
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  new Container(
+                    color: Colors.yellow,
+                    height: 50,
+                    width: 50,
+                  ),
+                  new Container(
+                    color: Colors.white,
+                    height: 50,
+                    width: 50,
+                  ),
+                  new Container(
+                    color: Colors.white12,
+                    height: 50,
+                    width: 50,
+                  ),
+                ],
+              )
             )
-          ),
+          ],
+
         ),
+
       ),
     );
   }
