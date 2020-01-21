@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: "Mon application",
       theme: new ThemeData(
-        primarySwatch: Colors.green
+        primarySwatch: Colors.grey
       ),
       debugShowCheckedModeBanner: false,
       home: Home(),
@@ -32,7 +32,7 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.white,
       appBar:  new AppBar(
         title: new Text('Jhon Doe '),
         leading: new Icon(Icons.account_balance_wallet),
@@ -40,7 +40,22 @@ class _Home extends State<Home> {
           new Icon(Icons.account_balance_wallet),
           new Icon(Icons.label),
           new Icon(Icons.account_circle),
-        ]
+        ],
+        elevation: 10,
+        centerTitle:  true,
+      ),
+      body: new Container(
+        color: Colors.blueGrey,
+        height: MediaQuery.of(context).size.height / 2,
+        width: MediaQuery.of(context).size.width / 2,
+        margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+        child: new Center(
+          child: new Container(
+            height: 50,
+            width: 150,
+            color: Colors.grey,
+          ),
+        ),
       ),
     );
   }
