@@ -46,14 +46,14 @@ class _Home extends State<Home> {
       ),
       body: new Container(
         color: Colors.blueGrey,
-        height: MediaQuery.of(context).size.height / 2,
-        width: MediaQuery.of(context).size.width / 2,
         margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
         child: new Center(
-          child: new Container(
-            height: 50,
-            width: 150,
-            color: Colors.grey,
+          child: new Card(
+            elevation: 15.0,
+            child: new Container(
+              width: 300,
+              child: new Image.asset("images/go.png"),
+            ),
           ),
         ),
       ),
