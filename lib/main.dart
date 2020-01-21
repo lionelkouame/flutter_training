@@ -30,11 +30,12 @@ class Home extends StatefulWidget {
 
 class _Home extends State<Home> {
   @override
+  var display = false;
   Widget build(BuildContext context) {
     return new Scaffold(
       backgroundColor: Colors.white,
       appBar:  new AppBar(
-        title: new Text('Jhon Doe '),
+        title: new Text("Lionel KOuame"),
         leading: new Icon(Icons.account_balance_wallet),
         actions: <Widget>[
           new Icon(Icons.account_balance_wallet),
@@ -63,6 +64,13 @@ class _Home extends State<Home> {
                 child: new Image.asset("images/go.png"),
               ),
             ),
+            new IconButton(
+                icon: new Icon(Icons.account_circle),
+                onPressed: (){
+                  setState(() {
+                    display = !display;
+                  });
+                }),
             new Container(
               color: Colors.grey,
               height: 70,
@@ -70,7 +78,7 @@ class _Home extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   new Container(
-                    color: Colors.yellow,
+                    color: (display) ? Colors.yellow: Colors.blue,
                     height: 50,
                     width: 50,
                   ),
