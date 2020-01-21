@@ -46,14 +46,13 @@ class _Home extends State<Home> {
       ),
       body: new Container(
         color: Colors.blueGrey,
-        margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
         child: new Center(
-          child: new Card(
-            elevation: 15.0,
-            child: new Container(
-              width: 300,
-              child: new Image.asset("images/go.png"),
-            ),
+          child: new Text("Welcome to the appliaction",
+            textAlign: TextAlign.center,
+            textScaleFactor: 1.5,
+            style: new TextStyle(
+              fontSize: 20,
+            )
           ),
         ),
       ),
