@@ -38,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   Music musicCurrent;
+  double position = 0.0;
 
   @override
   void initState() {
@@ -85,7 +86,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 textWithPrimaryStyle("0:0", 0.8),
                 textWithPrimaryStyle("0:22", 0.8),
               ],
-            )
+            ),
+            new Slider(
+                value: position,
+                min: 0.0,
+                max: 30.0,
+                inactiveColor: Colors.white,
+                activeColor: Colors.red,
+                onChanged: (double d) {
+                  setState(() {
+                    position = d;
+                  });
+                }),
           ],
         ),
       ),
