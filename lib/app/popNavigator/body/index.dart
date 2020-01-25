@@ -14,7 +14,7 @@ class _BodyIndexState extends State<BodyIndex> {
     // TODO: implement build
     return new Center(
       child: RaisedButton(
-        onPressed: pressed,
+        onPressed: snackTest,
         child: new Text(btnValue),
       ),
     );
@@ -25,5 +25,13 @@ class _BodyIndexState extends State<BodyIndex> {
       btnStatus = !btnStatus;
       (btnStatus) ? btnValue = "Btn is clicked" : btnValue = "clicked !!";
     });
+  }
+
+  void snackTest() {
+    SnackBar snackbar = new SnackBar(
+        content: new Text("Infos sur offre")
+    );
+
+    Scaffold.of(context).showSnackBar(snackbar);
   }
 }
