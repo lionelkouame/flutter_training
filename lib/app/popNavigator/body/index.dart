@@ -14,7 +14,7 @@ class _BodyIndexState extends State<BodyIndex> {
     // TODO: implement build
     return new Center(
       child: RaisedButton(
-        onPressed: alert,
+        onPressed: alertDialogTest,
         child: new Text(btnValue),
       ),
     );
@@ -58,6 +58,29 @@ class _BodyIndexState extends State<BodyIndex> {
                     Navigator.pop(context);
                   },
                   child: new Text("Continuel", textScaleFactor: 1.0))
+            ],
+          );
+        }
+    );
+  }
+
+  Future<Null> alertDialogTest() async {
+    return showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: new Text("Alert dialogue test"),
+            content: new Text("Alert dialogue test"),
+            contentPadding: EdgeInsets.all(15.0),
+            actions: <Widget>[
+              new RaisedButton(
+                  onPressed: () {
+                    print("OK is ok");
+                    Navigator.pop(context);
+                  }
+                  , child: new Text("OK")),
+
             ],
           );
         }
