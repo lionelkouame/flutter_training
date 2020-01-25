@@ -14,7 +14,7 @@ class _BodyIndexState extends State<BodyIndex> {
     // TODO: implement build
     return new Center(
       child: RaisedButton(
-        onPressed: snackTest,
+        onPressed: alert,
         child: new Text(btnValue),
       ),
     );
@@ -33,5 +33,34 @@ class _BodyIndexState extends State<BodyIndex> {
     );
 
     Scaffold.of(context).showSnackBar(snackbar);
+  }
+
+  Future<Null> alert() async {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: new Text("Test Alert  Dialog", textScaleFactor: 1.5,),
+            content: new Text("I AM PRESENT application problem continue ???",
+                textScaleFactor: 1.0),
+            contentPadding: EdgeInsets.all(5.0),
+            actions: <Widget>[
+              new FlatButton(
+                  onPressed: () {
+                    print('Abor Action');
+                    Navigator.pop(context);
+                  },
+                  child: new Text("Cancel", textScaleFactor: 1.0)),
+              new FlatButton(
+                  onPressed: () {
+                    print('Continue Action');
+                    Navigator.pop(context);
+                  },
+                  child: new Text("Continuel", textScaleFactor: 1.0))
+            ],
+          );
+        }
+    );
   }
 }
