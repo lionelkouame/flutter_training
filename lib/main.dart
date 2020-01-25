@@ -99,8 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
             new Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                textWithPrimaryStyle("0:0", 0.8),
-                textWithPrimaryStyle("0:22", 0.8),
+                textWithPrimaryStyle(displayDuration(position), 1),
+                textWithPrimaryStyle(displayDuration(durationSong), 1),
               ],
             ),
             new Slider(
@@ -136,13 +136,13 @@ class _MyHomePageState extends State<MyHomePage> {
               pause();
               break;
             case ActionMusic.rewind:
-              print('rewind');
-              break;
-            case ActionMusic.forward:
-              forward();
+              rewind();
               audioPlayer.stop();
               audioPlayerConfig();
               play();
+              break;
+            case ActionMusic.forward:
+              forward();
               break;
           }
         }
@@ -206,6 +206,29 @@ class _MyHomePageState extends State<MyHomePage> {
       index++;
     }
     musicCurrent = musics[index];
+  }
+
+  void rewind() {
+    if (position > Duration(seconds: 3)) {
+      audioPlayer.seek(0.0);
+    } else {
+      if (index == 0) {
+        index = musics.length;
+      } else {
+        index--;
+      }
+    }
+    musicCurrent = musics[index];
+    audioPlayer.stop();
+    audioPlayerConfig();
+    play();
+  }
+
+  String displayDuration(Duration duration) {
+    return duration
+        .toString()
+        .split('.')
+        .first;
   }
 
 }
