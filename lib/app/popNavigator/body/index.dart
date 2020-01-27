@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/app/popNavigator/body/NewPage.dart';
+
 
 class BodyIndex extends StatefulWidget {
   @override
@@ -14,8 +16,8 @@ class _BodyIndexState extends State<BodyIndex> {
     // TODO: implement build
     return new Center(
       child: RaisedButton(
-        onPressed: alertDialogTest,
         child: new Text(btnValue),
+        onPressed: routeToNewPage,
       ),
     );
   }
@@ -86,4 +88,12 @@ class _BodyIndexState extends State<BodyIndex> {
         }
     );
   }
+
+  void routeToNewPage() {
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (BuildContext context) {
+      return new NewPage("Je suis une nouvelle page");
+    }));
+  }
+
 }
