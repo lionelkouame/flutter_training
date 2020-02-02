@@ -101,8 +101,13 @@ class _PageQuizState extends State<PageQuiz> {
             ),
             contentPadding: EdgeInsets.all(20.0),
             children: <Widget>[
-              new Image.asset(
-                (goodAnswer) ? imgTrue : imgFalse, fit: BoxFit.cover,),
+              new Container(
+                height: 500,
+                width: 500,
+                child: new Image.asset(
+                  (goodAnswer) ? imgTrue : imgFalse, fit: BoxFit.cover,
+                ),
+              ),
               new Container(height: 25,),
               new CustomText(
                 question.explication, factor: 1.25, color: Colors.grey[900],),
