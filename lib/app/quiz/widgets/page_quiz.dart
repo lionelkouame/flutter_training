@@ -82,6 +82,47 @@ class _PageQuizState extends State<PageQuiz> {
   }
 
   Future<Null> dialog(bool b) async {
+    bool goodAnswer = (b == question.answer);
+
+    if (goodAnswer) {
+      score++;
+    }
+
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          String imgTrue = "assets/true.jpg";
+          String imgFalse = "assets/false.jpg";
+          return new SimpleDialog(
+            title: new CustomText(
+              (goodAnswer) ? "Bonne réponse !!! " : "Mauvaise réponse",
+              color: (goodAnswer) ? Colors.green : Colors.red,
+            ),
+            contentPadding: EdgeInsets.all(20.0),
+            children: <Widget>[
+              new Image.asset(
+                (goodAnswer) ? imgTrue : imgFalse, fit: BoxFit.cover,),
+              new Container(height: 25,),
+              new CustomText(
+                question.explication, factor: 1.25, color: Colors.grey[900],),
+              new Container(height: 25,),
+              new RaisedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  nexQuestion();
+                },
+                child: new CustomText("Question suivante"),
+              )
+            ],
+
+          );
+        }
+    );
+
+  }
+
+  void nexQuestion() {
 
   }
 
