@@ -127,8 +127,39 @@ class _PageQuizState extends State<PageQuiz> {
 
   }
 
-  void nexQuestion() {
+  Future<Null> alertEnd() async {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext buildContext) {
+        return new AlertDialog(
+          title: new CustomText("c'est Fini", factor: 1.25, color: Colors.red,),
+          content: new CustomText("Votre SCORE: $score / $index"),
+          actions: <Widget>[
+            new FlatButton(
+                onPressed: () {
+                  Navigator.pop(buildContext);
+                  Navigator.pop(context);
+                },
+                child: new CustomText("ok", factor: 1.25,)
+            )
+          ],
+        );
+      },
 
+    );
+  }
+
+  void nexQuestion() {
+    if (index < questions.length - 1) {
+      index++;
+      setState(() {
+        question = questions[index];
+      });
+    }
+    else {
+      alertEnd();
+    }
   }
 
 }
