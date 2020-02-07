@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_training/app/interactive_control/checkbox_training.dart';
+import 'package:flutter_training/app/interactive_control/radio_training.dart';
 import 'package:flutter_training/app/quiz/widgets/custom_text.dart';
 import 'page_quiz.dart';
 
@@ -50,6 +51,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: CustomText("Commencer le Quiz",
                     factor: 2, color: Colors.white),
+              ),
+              new RaisedButton(
+                color: Colors.green,
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (BuildContext context) {
+                    return new RadioTraining();
+                  }));
+                },
+                child:
+                    CustomText("Radio Boutton", factor: 2, color: Colors.white),
               ),
               new RaisedButton(
                 color: Colors.green,
