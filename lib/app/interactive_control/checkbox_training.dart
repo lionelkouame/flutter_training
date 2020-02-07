@@ -7,6 +7,41 @@ class CheckboxTraining extends StatefulWidget {
 }
 
 class _CheckboxTrainingState extends State<CheckboxTraining> {
+  Map check = {
+    'Carote': false,
+    'Bannane': false,
+    'Pain': false,
+    'Orange': false,
+    'Bissap': false,
+  };
+
+  List<Widget> displayChecklist() {
+    List<Widget> l = [];
+    check.forEach((key, value) {
+      Row row = Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          CustomText(
+            key,
+            factor: 1.5,
+            color: (value) ? Colors.green : Colors.red,
+          ),
+          Checkbox(
+            value: (value),
+            onChanged: (bool b) {
+              setState(() {
+                check[key] = b;
+              });
+            },
+          )
+        ],
+      );
+      l.add(row);
+    });
+
+    return l;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -16,7 +51,7 @@ class _CheckboxTrainingState extends State<CheckboxTraining> {
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[CustomText('My first checkbox')],
+        children: displayChecklist(),
       )),
     );
   }
