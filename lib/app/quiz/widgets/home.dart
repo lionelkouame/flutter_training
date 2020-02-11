@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_training/app/interactive_control/checkbox_training.dart';
 import 'package:flutter_training/app/interactive_control/radio_training.dart';
+import 'package:flutter_training/app/interactive_control/switch_training.dart';
 import 'package:flutter_training/app/quiz/widgets/custom_text.dart';
 import 'page_quiz.dart';
 
@@ -76,6 +77,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   factor: 2,
                 ),
+              ),
+              RaisedButton(
+                color: Colors.green,
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (BuildContext context) {
+                        return new SwitchTraining();
+                      }));
+                },
+                child: CustomText('Switch Training'),
               )
             ],
           ),
