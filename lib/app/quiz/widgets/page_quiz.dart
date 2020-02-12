@@ -42,12 +42,12 @@ class _PageQuizState extends State<PageQuiz> {
       ),
       body: new Center(
         child: new Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             new CustomText("Question numéro  ${index + 1}"),
             new CustomText("Score: $score / $index"),
             new Card(
-              elevation: 10.0,
+              elevation: 20.0,
               child: new Container(
                 height: appWidth,
                 width: appWidth,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_training/app/interactive_control/checkbox_training.dart';
 import 'package:flutter_training/app/interactive_control/radio_training.dart';
 import 'package:flutter_training/app/quiz/widgets/custom_text.dart';
+import 'package:flutter_training/app/slider_training/slider_training.dart';
 import 'page_quiz.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -73,6 +74,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: CustomText(
                   'Les contrôles interactifs',
+                  color: Colors.white,
+                  factor: 2,
+                ),
+              ),
+              new RaisedButton(
+                color: Colors.green,
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (BuildContext context) {
+                    return new SliderTraining();
+                  }));
+                },
+                child: CustomText(
+                  'Le sliders',
                   color: Colors.white,
                   factor: 2,
                 ),
