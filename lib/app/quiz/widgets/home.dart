@@ -3,6 +3,8 @@ import 'package:flutter_training/app/interactive_control/checkbox_training.dart'
 import 'package:flutter_training/app/interactive_control/radio_training.dart';
 import 'package:flutter_training/app/interactive_control/switch_training.dart';
 import 'package:flutter_training/app/quiz/widgets/custom_text.dart';
+import 'package:flutter_training/app/quiz/widgets/second_home.dart';
+import 'package:flutter_training/app/slider_training/slider_training.dart';
 import 'page_quiz.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -27,21 +29,12 @@ class _MyHomePageState extends State<MyHomePage> {
         .height;
     return Scaffold(
         appBar: new AppBar(
-          title: new Text(widget.title),
+          title: new Text("Bienvenu !!"),
         ),
         body: new Center(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Card(
-                elevation: 10.0,
-                child: new Container(
-                  height: 400,
-                  width: 400,
-                  child: new Image.asset('assets/deux.jpg',
-                    fit: BoxFit.cover,),
-                ),
-              ),
               new RaisedButton(
                 color: Colors.green,
                 onPressed: () {
@@ -74,6 +67,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: CustomText(
                   'Les contrôles interactifs',
+                  color: Colors.white,
+                  factor: 2,
+                ),
+              ),
+              new RaisedButton(
+                color: Colors.green,
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (BuildContext context) {
+                        return new SliderTraining();
+                      }));
+                },
+                child: CustomText(
+                  'Le sliders',
+                  color: Colors.white,
+                  factor: 2,
+                ),
+              ),
+              new RaisedButton(
+                color: Colors.green,
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (BuildContext context) {
+                        return new MyHomeSecondPage();
+                      }));
+                },
+                child: CustomText(
+                  'Autres',
                   color: Colors.white,
                   factor: 2,
                 ),
