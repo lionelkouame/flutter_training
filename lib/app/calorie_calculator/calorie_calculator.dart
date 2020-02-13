@@ -10,6 +10,7 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
 
   double poids;
   bool sexType = false;
+  double age;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +47,12 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
                         CustomText('Femme', color: Colors.pink,),
                       ],
                     ),
+                    RaisedButton(
+                      child: CustomText((age != null)
+                          ? "Vous avez ${age.toInt()} ans "
+                          : "Choisir votre age"),
+                      onPressed: displayAge,
+                    ),
                     TextField(
                       keyboardType: TextInputType.number,
                       onChanged: (String string) {
@@ -64,6 +71,24 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
         ),
       ),
     );
+  }
+
+  Future<Null> displayAge() async {
+    DateTime choice = await showDatePicker(
+        context: context,
+        initialDatePickerMode: DatePickerMode.year,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1910),
+        lastDate: DateTime(2050)
+    );
+    if (choice != null) {
+      var delta = DateTime.now().difference(choice);
+      var days = delta.inDays;
+      var years = (days / 365);
+      setState(() {
+        age = years;
+      });
+    }
   }
 
   Color displaySexColor() {
