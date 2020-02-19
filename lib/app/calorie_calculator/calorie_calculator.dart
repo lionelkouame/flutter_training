@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_training/app/quiz/widgets/custom_text.dart';
 
 class CalorieCalculator extends StatefulWidget {
@@ -12,6 +13,9 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
   bool sexType = false;
   double age;
   double taille = 170.00;
+  int radioSelected;
+
+  Map mapActivity = {"Failble": 0, "Moyenne": 1, "Forte": 2};
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +84,10 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
                       },
                       decoration: InputDecoration(
                           labelText: "Entrez votre poids en kilos"),
-                    )
+                    ),
+                    CustomText("Quel est votre activité sportive"),
+                    padding(),
+                    rowRadio()
                   ],
                 ),
               ),
@@ -119,5 +126,31 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
     } else {
       return Colors.pink;
     }
+  }
+
+  Row rowRadio() {
+    List<Widget> l = [];
+    mapActivity.forEach((key, value) {
+      Column colonne = Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Radio(
+            value: value,
+            groupValue: radioSelected,
+            onChanged: (Object i) {
+              setState(() {
+                radioSelected = i;
+              });
+            },
+          ),
+          CustomText(key, color: displaySexColor())
+        ],
+      );
+      l.add(colonne);
+    });
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: l,
+    );
   }
 }
