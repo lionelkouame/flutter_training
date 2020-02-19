@@ -26,7 +26,8 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
           title: CustomText("Calcul de calories"),
           backgroundColor: displaySexColor(),
         ),
-        body: Center(
+        body: SingleChildScrollView(
+          padding: EdgeInsets.all(15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
