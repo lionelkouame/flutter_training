@@ -14,8 +14,14 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
   double age;
   double taille = 170.00;
   int radioSelected;
+  int calorieBase = 0;
+  int calorieACtivity = null;
 
-  Map mapActivity = {"Failble": 0, "Moyenne": 1, "Forte": 2};
+  Map mapActivity = {
+    0: "Failble",
+    1: "Moyenne",
+    2: "Forte"
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +98,12 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
                   ],
                 ),
               ),
+              padding(),
+              RaisedButton(
+                color: displaySexColor(),
+                child: CustomText("Calculer"),
+                onPressed: calculCalory,
+              )
             ],
           ),
         ),
@@ -136,7 +148,7 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Radio(
-            value: value,
+            value: key,
             groupValue: radioSelected,
             onChanged: (Object i) {
               setState(() {
@@ -144,7 +156,7 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
               });
             },
           ),
-          CustomText(key, color: displaySexColor())
+          CustomText(value, color: displaySexColor())
         ],
       );
       l.add(colonne);
@@ -154,4 +166,35 @@ class _CalorieCalculatorState extends State<CalorieCalculator> {
       children: l,
     );
   }
+
+  void calculCalory() {
+    if (age != null && radioSelected != null && poids != null) {
+
+    } else {
+      alert();
+    }
+  }
+
+  Future<Null> alert() async {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext buildContext) {
+          return AlertDialog(
+            title: CustomText('Erreur'),
+            content: CustomText('Tous les champs ne sont pas remplit'),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.pop(buildContext);
+                },
+                child: CustomText('OK', color: Colors.red,),
+              ),
+            ],
+          );
+        }
+    );
+  }
+
 }
+
