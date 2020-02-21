@@ -37,16 +37,38 @@ class _ListViewTrainingState extends State<ListViewTraining> {
       onTap: (() => FocusScope.of(context).requestFocus(FocusNode())),
       child: new Scaffold(
           appBar: AppBar(
-            title: CustomText("Les scrolables"),
+            title: CustomText("List View"),
           ),
           body: Center(
             child: ListView.builder(
                 itemCount: activity.length,
                 itemBuilder: (context, i) {
-                  return ListTile(
-                    title: CustomText("item => ${activity[i].name}"),
-                    trailing: Icon(activity[i].icon),
-                    leading: Icon(activity[i].icon),
+                  Activity activ = activity[i];
+                  String key = activ.name;
+                  return Dismissible(
+                    key: Key(key),
+                    child:
+                    ListTile(
+                      title: CustomText(activ.name),
+                      trailing: Icon(activ.icon),
+                      leading: Icon(activ.icon),
+                    ),
+                    background: Container(
+                      padding: EdgeInsets.only(right: 30.0),
+                      color: Colors.red,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          CustomText(
+                            'Supprimer', color: Colors.white, factor: 2.0,),
+                          Icon(Icons.delete)
+                        ],
+                      ),
+                    ),
+                    onDismissed: (direction) {
+                      print(activ);
+                      activity.removeAt(i);
+                    },
                   );
                 }),
           )),
