@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_training/app/calorie_calculator/calorie_calculator.dart';
+import 'package:flutter_training/app/scrolable_training/scrolable_training.dart';
 import 'package:flutter_training/app/quiz/widgets/custom_text.dart';
 import 'package:flutter_training/app/quiz/widgets/home.dart';
 import 'package:flutter_training/app/interactive_control/datepicker_training.dart';
@@ -61,6 +62,17 @@ class _MyHomeSecondPageState extends State<MyHomeSecondPage> {
                   }));
                 },
                 child: CustomText("Challenge Calorie calculator",
+                    factor: 2, color: Colors.white),
+              ),
+              new RaisedButton(
+                color: Colors.green,
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (BuildContext context) {
+                    return new ScrolableTraining();
+                  }));
+                },
+                child: CustomText("Les scrolables",
                     factor: 2, color: Colors.white),
               )
             ],
