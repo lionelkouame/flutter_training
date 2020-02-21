@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_training/app/quiz/widgets/custom_text.dart';
 import 'package:flutter_training/app/quiz/widgets/home.dart';
+import 'package:flutter_training/app/scrolable_training/custom_tile_training.dart';
 import 'package:flutter_training/app/scrolable_training/list_view_training.dart';
 import 'package:flutter_training/app/scrolable_training/single_child_scroll_view_training.dart';
 
@@ -45,6 +46,18 @@ class _ScrolableTrainingState extends State<ScrolableTraining> {
                               }));
                     },
                     child: CustomText("the ListView",
+                        factor: 2, color: Colors.white),
+                  ),
+                  RaisedButton(
+                    color: Colors.green,
+                    onPressed: () {
+                      Navigator.push(context,
+                          new MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return new CustomTileTraining();
+                              }));
+                    },
+                    child: CustomText("the Cutom Tile",
                         factor: 2, color: Colors.white),
                   ),
                 ],
