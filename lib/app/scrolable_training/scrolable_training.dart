@@ -16,7 +16,24 @@ class _ScrolableTrainingState extends State<ScrolableTraining> {
         appBar: AppBar(
           title: CustomText("Les scrolables"),
         ),
-        body: Center(),
+        body: SingleChildScrollView(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(height: 100, color: Colors.red),
+            Container(height: 100, color: Colors.green),
+            Container(height: 100, color: Colors.grey),
+            Container(height: 100, color: Colors.black),
+            Container(height: 100, color: Colors.red),
+            Container(height: 100, color: Colors.green),
+            Container(height: 100, color: Colors.grey),
+            Container(height: 100, color: Colors.black),
+            Container(height: 100, color: Colors.red),
+            Container(height: 100, color: Colors.green),
+            Container(height: 100, color: Colors.grey),
+            Container(height: 100, color: Colors.black),
+          ],
+        )),
       ),
     );
   }
